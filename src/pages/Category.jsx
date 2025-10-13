@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GlobalContext from "../context/GlobalContext";
 function Category() {
   const { GlobalProviderValue } = useContext(GlobalContext);
   const { categoryArray } = GlobalProviderValue;
-
+  const navigate = useNavigate();
   return (
     <>
       <h1 className="text-center">scegli la tua categoria </h1>
+      <button className="btn btn-success" onClick={() => navigate(-1)}>indietro</button>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {categoryArray.map((e) => (
         <div className="card">
