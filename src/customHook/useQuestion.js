@@ -24,11 +24,13 @@ function decodeHtmlEntities(text) {
 
             const finalQuestions = data.results.map((item) => {
                 const allAnsweres = [...item.incorrect_answers, item.correct_answer].sort(() => Math.random() - 0.5);
+                const allAnsweresFinal = allAnsweres.map((answer) => decodeHtmlEntities(answer));
                 const format_answeres = decodeHtmlEntities(item.question)
+                const correctAnswerFormatted = decodeHtmlEntities(item.correct_answer);
                 return{
-                    allAnsweres,
+                    allAnsweresFinal,
                     question: format_answeres,
-                    correct_answer: item.correct_answer
+                    correct_answer: correctAnswerFormatted
                 }
             })
                 
@@ -46,7 +48,7 @@ function decodeHtmlEntities(text) {
 
         useEffect(() => {
             fetchQuestion()
-        }, [])
+        }, [categoryId])
 
       
 
