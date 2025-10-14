@@ -14,7 +14,7 @@ function AppFooter() {
                     <ul class="list-unstyled">
                         <li class="mb-2"><Link to="/" class="text-white-50 text-decoration-none footer-link">Home</Link></li>
                         <li class="mb-2"><Link to="/category" class="text-white-50 text-decoration-none footer-link">Categorie</Link></li>
-                        <li class="mb-2"><Link to="/" class="text-white-50 text-decoration-none footer-link">Chi Siamo</Link></li>
+                        <li class="mb-2"><Link to="/about" class="text-white-50 text-decoration-none footer-link">Chi Siamo</Link></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">

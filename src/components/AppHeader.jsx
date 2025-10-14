@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 function AppHeader() {
     return (
        <header class="bg-info bg-gradient py-5 shadow">
@@ -14,10 +14,10 @@ function AppHeader() {
                 <div class="col-lg-6">
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-end gap-3">
                         <button class="btn btn-warning btn-lg fw-bold shadow-lg px-5 py-3 rounded-pill">
-                            <i class="fas fa-list-ul me-2"></i>Scegli la Categoria
+                            <i class="fas fa-list-ul me-2"></i><Link to="/category" class="text-white-50 text-decoration-none footer-link">Categorie</Link>
                         </button>
                         <button class="btn btn-light btn-lg fw-bold shadow px-4 py-3 rounded-pill">
-                            <i class="fas fa-info-circle me-2"></i>Chi Siamo
+                            <i class="fas fa-info-circle me-2"></i><Link to="/about" class="text-white-50 text-decoration-none footer-link">Chi Siamo</Link>
                         </button>
                     </div>
                 </div>

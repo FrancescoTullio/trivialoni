@@ -7,6 +7,7 @@ import Category from "./pages/Category";
 import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 import ResultPage from "./pages/ResultPage";
+import AboutUs from "./pages/AboutUs";
 
 const categoryArray = [
   {
@@ -144,6 +145,7 @@ function App() {
             <Route path="/category" element={<Category />} />
             <Route path="/quiz/:id" element={<Quiz />} />
             <Route path="/result" element={<ResultPage />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
