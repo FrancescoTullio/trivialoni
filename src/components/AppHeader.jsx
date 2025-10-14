@@ -1,30 +1,62 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
 function AppHeader() {
     return (
-       <header class="bg-info bg-gradient py-5 shadow">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-                    <h1 class="display-3 fw-bold text-white mb-2">
-                        <i class="fas fa-puzzle-piece text-warning me-3"></i>
-                        Trivialoni
-                    </h1>
-                    <p class="lead text-white fs-4 mb-0">Il tuo quiz interattivo preferito!</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-end gap-3">
-                        <button class="btn btn-warning btn-lg fw-bold shadow-lg px-5 py-3 rounded-pill">
-                            <i class="fas fa-list-ul me-2"></i><Link to="/category" class="text-white-50 text-decoration-none footer-link">Categorie</Link>
-                        </button>
-                        <button class="btn btn-light btn-lg fw-bold shadow px-4 py-3 rounded-pill">
-                            <i class="fas fa-info-circle me-2"></i><Link to="/about" class="text-white-50 text-decoration-none footer-link">Chi Siamo</Link>
-                        </button>
-                    </div>
+        // Navbar fissa in alto, con sfondo brand e sfumatura
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info bg-gradient shadow">
+            <div className="container py-1"> {/* Padding verticale leggero */}
+                
+                {/* Brand/Logo Link */}
+                <Link to="/" className="navbar-brand d-flex align-items-center">
+                    {/* Icona in risalto */}
+                    <i className="fas fa-puzzle-piece text-warning me-2 fs-4"></i>
+                    <span className="fw-bolder fs-4">Trivialoni</span>
+                </Link>
+
+                {/* Bottone Toggler per il Mobile */}
+                <button 
+                    className="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                {/* Menu di Navigazione (allineato a destra) */}
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto align-items-center"> {/* Centra verticalmente gli elementi sulla navbar */}
+                        
+                        {/* Link Home - Opzionale ma consigliato */}
+                         <li className="nav-item me-lg-2">
+                            <Link to="/" className="nav-link text-white">Home</Link>
+                        </li>
+
+                        {/* Link Categorie (come pulsante discreto) */}
+                        <li className="nav-item me-lg-2">
+                            <Link 
+                                to="/category" 
+                                // Piccolo pulsante di navigazione con sfondo info
+                                className="nav-link btn btn-sm btn-outline-warning fw-bold text-white px-3 py-2 rounded-pill" 
+                            >
+                                <i className="fas fa-list-ul me-2"></i>Categorie
+                            </Link>
+                        </li>
+
+                        {/* Link Chi Siamo */}
+                        <li className="nav-item">
+                            <Link to="/about" className="nav-link text-white-75">
+                                <i className="fas fa-info-circle me-2"></i>Chi Siamo
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </header>
-    )
+        </nav>
+    );
 };
 
 export default AppHeader;
