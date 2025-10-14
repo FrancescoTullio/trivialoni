@@ -11,13 +11,13 @@ import AboutUs from "./pages/AboutUs";
 
 const categoryArray = [
   {
-    name: "General Knowledge",
+    name: "Cultura Generale",
     id: 9,
     description:
       "Domande di cultura generale su un'ampia varietà di argomenti, perfette per testare la tua conoscenza globale.",
   },
   {
-    name: "Books",
+    name: "Libri",
     id: 10,
     description:
       "Quiz sul mondo della letteratura: autori, titoli famosi, trame e curiosità sui libri.",
@@ -29,31 +29,31 @@ const categoryArray = [
       "Domande dedicate al cinema: registi, attori, pellicole iconiche e citazioni celebri.",
   },
   {
-    name: "Music",
+    name: "Musica",
     id: 12,
     description:
       "Sfida la tua memoria musicale con quiz su generi, artisti, album e canzoni storiche.",
   },
   {
-    name: "Musicals & Theatres",
+    name: "Teatro e Spettacolo",
     id: 13,
     description:
       "Per chi ama il palcoscenico: spettacoli teatrali, musical e grandi interpreti del teatro.",
   },
   {
-    name: "Television",
+    name: "Televisione",
     id: 14,
     description:
       "Domande su serie TV, programmi famosi e momenti iconici della televisione.",
   },
   {
-    name: "Board Games",
+    name: "Giochi",
     id: 16,
     description:
       "Quiz dedicati ai giochi da tavolo, dalle regole dei classici alle curiosità sui più moderni.",
   },
   {
-    name: "Scienze e Nature",
+    name: "Science & Natura",
     id: 17,
     description:
       "Testa le tue conoscenze su biologia, fisica, chimica, ambiente e meraviglie naturali.",
@@ -65,13 +65,13 @@ const categoryArray = [
       "Domande sul mondo dell’informatica: software, hardware, Internet e storia dei computer.",
   },
   {
-    name: "Mathematics",
+    name: "Matematica",
     id: 19,
     description:
       "Per gli amanti dei numeri: quiz su logica, formule, calcoli e curiosità matematiche.",
   },
   {
-    name: "Mythologi",
+    name: "Mitologia",
     id: 20,
     description:
       "Mettiti alla prova con domande su divinità, leggende e miti delle culture antiche.",
@@ -83,37 +83,37 @@ const categoryArray = [
       "Quiz su sport, atleti, eventi e record che hanno fatto la storia delle competizioni.",
   },
   {
-    name: "Geography",
+    name: "Geografia",
     id: 22,
     description:
       "Domande su paesi, capitali, montagne, fiumi e tutto ciò che riguarda il nostro pianeta.",
   },
   {
-    name: "History",
+    name: "Storia",
     id: 23,
     description:
       "Ripercorri le epoche storiche con domande su eventi, battaglie e personaggi famosi.",
   },
   {
-    name: "Politics",
+    name: "Politica",
     id: 24,
     description:
       "Quiz sul mondo politico: sistemi di governo, leader storici e attualità istituzionali.",
   },
   {
-    name: "Art",
+    name: "Arte",
     id: 25,
     description:
       "Scopri quanto conosci il mondo dell’arte: pittura, scultura, correnti artistiche e grandi maestri.",
   },
   {
-    name: "Celebrities",
+    name: "Celebrità",
     id: 26,
     description:
       "Domande su personaggi famosi del mondo dello spettacolo, della moda e dei social media.",
   },
   {
-    name: "Animals",
+    name: "Animali",
     id: 27,
     description:
       "Quiz sugli animali del mondo: specie, habitat, curiosità e caratteristiche sorprendenti.",
