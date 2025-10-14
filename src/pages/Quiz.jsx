@@ -33,6 +33,7 @@ function Quiz() {
 
     setCorrect(correctCount);
     setWrong(wrongCount);
+    if (correctCount >= 10) navigate("/result");
   }, [selectedAnswers, setCorrect, setWrong]);
 
   const handleClick = (questionIndex, answer) => {
