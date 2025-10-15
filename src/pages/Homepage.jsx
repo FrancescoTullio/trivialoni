@@ -6,7 +6,6 @@ function HomePage() {
   const { GlobalProviderValue } = useContext(GlobalContext);
   const { categoryArray } = GlobalProviderValue;
   const [selectedId, setSelectedId] = useState(null);
-  console.log(selectedId);
   return (
     // Contenitore principale centrato orizzontalmente e con padding verticale
     <div className="container mt-5 pt-5 pb-5"> 
