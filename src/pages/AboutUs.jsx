@@ -31,7 +31,7 @@ function AboutUs() {
                 <div className="card-body p-4 text-center">
                   <div className="mb-4">
                     <img 
-                      src="public\WhatsApp Image 2025-05-29 at 08.22.54.jpeg" 
+                      src="https://media.licdn.com/dms/image/v2/D4E03AQFeoS2_ky4vhQ/profile-displayphoto-shrink_800_800/B4EZdfht01HsAc-/0/1749654365145?e=1763596800&v=beta&t=e7fBG2nWuR_L1NuY6gNWe7UOP1Hit6vrbe314Ny9SI8" 
                       alt="Francesco Tullio"
                       className="rounded-circle border border-4 border-primary"
                       style={{ width: '200px', height: '200px', objectFit: 'cover' }}
@@ -60,7 +60,7 @@ function AboutUs() {
                 <div className="card-body p-4 text-center">
                   <div className="mb-4">
                     <img 
-                      src="public\photo_2025-07-20_18-59-45.jpg" 
+                      src="https://media.licdn.com/dms/image/v2/D4D35AQFn80S8_VHdRA/profile-framedphoto-shrink_800_800/B4DZme1VRLJMAg-/0/1759306405213?e=1761148800&v=beta&t=lnMFNzyUIyuz62v_zwQlJRo6K7nb_l3Po8gJuQD2aNY" 
                       alt="Enrico Ciccolini"
                       className="rounded-circle border border-4 border-success"
                       style={{ width: '200px', height: '200px', objectFit: 'cover' }}
