@@ -8,15 +8,42 @@ function Quiz() {
   const { id } = useParams();
   const navigate = useNavigate();
   const question = useQuestion(id);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
+  
+  // Carica le risposte salvate o inizializza come oggetto vuoto
+  const [selectedAnswers, setSelectedAnswers] = useState(() => {
+    const saved = sessionStorage.getItem(`quiz_answers_${id}`);
+    return saved ? JSON.parse(saved) : {};
+  });
+
   const { GlobalProviderValue } = useContext(GlobalContext);
   const { correct, setCorrect, wrong, setWrong } = GlobalProviderValue;
 
+  // Salva le risposte ogni volta che cambiano
   useEffect(() => {
-    setCorrect(0);
-    setWrong(0);
-    setSelectedAnswers({});
-  }, [id, setCorrect, setWrong]);
+    if (Object.keys(selectedAnswers).length > 0) {
+      sessionStorage.setItem(`quiz_answers_${id}`, JSON.stringify(selectedAnswers));
+    }
+  }, [selectedAnswers, id]);
+
+  // Ricalcola i contatori quando le risposte sono caricate
+  useEffect(() => {
+    if (Object.keys(selectedAnswers).length === 0) {
+      setCorrect(0);
+      setWrong(0);
+      return;
+    }
+
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    Object.values(selectedAnswers).forEach((isCorrect) => {
+      if (isCorrect) correctCount++;
+      else wrongCount++;
+    });
+
+    setCorrect(correctCount);
+    setWrong(wrongCount);
+  }, [id]); // Esegui solo quando cambia la categoria
 
   useEffect(() => {
     if (Object.keys(selectedAnswers).length === 0) return;
@@ -31,8 +58,18 @@ function Quiz() {
 
     setCorrect(correctCount);
     setWrong(wrongCount);
-    if (correctCount + wrongCount >= 10) navigate("/result");
-  }, [selectedAnswers, setCorrect, setWrong, navigate]);
+    
+    // Naviga al risultato solo se hai risposto a tutte e 10 le domande
+    if (correctCount + wrongCount >= 10) {
+      // Aspetta 2 secondi prima di navigare
+      const timer = setTimeout(() => {
+        navigate("/result");
+      }, 2000);
+      
+      // Cleanup del timer se il componente viene smontato prima
+      return () => clearTimeout(timer);
+    }
+  }, [selectedAnswers]);
 
   const handleClick = useCallback((questionIndex, answer) => {
     const isCorrect = answer === question[questionIndex].correct_answer;
@@ -76,6 +113,26 @@ function Quiz() {
     return { totalQuestions, answeredQuestions, progressPercentage };
   }, [question, selectedAnswers]);
 
+  // Pulisce il sessionStorage quando esci dalla pagina del quiz
+  useEffect(() => {
+    return () => {
+      // Questa funzione viene eseguita quando il componente viene smontato
+      // (cioè quando navighi via dalla pagina del quiz)
+      sessionStorage.removeItem(`quiz_${id}`);
+      sessionStorage.removeItem(`quiz_answers_${id}`);
+    };
+  }, [id]);
+
+  // Funzione per ricominciare il quiz
+  const handleResetQuiz = () => {
+    sessionStorage.removeItem(`quiz_${id}`);
+    sessionStorage.removeItem(`quiz_answers_${id}`);
+    setSelectedAnswers({});
+    setCorrect(0);
+    setWrong(0);
+    window.location.reload(); // Ricarica per ottenere nuove domande
+  };
+
   return (
     <div className="quiz-container min-vh-100">
       <div className="container-lg py-5">
@@ -89,12 +146,21 @@ function Quiz() {
               Metti alla prova le tue conoscenze
             </p>
           </div>
-          <button 
-            className="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow quiz-back-btn"
-            onClick={() => navigate(-1)}
-          >
-            ← Indietro
-          </button>
+          <div className="d-flex gap-2">
+            <button 
+              className="btn btn-warning btn-lg rounded-pill px-4 fw-bold shadow"
+              onClick={handleResetQuiz}
+              title="Ricomincia con nuove domande"
+            >
+              🔄 Reset
+            </button>
+            <button 
+              className="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow quiz-back-btn"
+              onClick={() => navigate(-1)}
+            >
+              ← Indietro
+            </button>
+          </div>
         </div>
 
         {/* Stats Cards */}
