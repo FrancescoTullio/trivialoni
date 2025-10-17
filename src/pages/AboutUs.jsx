@@ -60,7 +60,7 @@ function AboutUs() {
                 <div className="card-body p-4 text-center">
                   <div className="mb-4">
                     <img 
-                      src="https://media.licdn.com/dms/image/v2/D4D35AQFn80S8_VHdRA/profile-framedphoto-shrink_800_800/B4DZme1VRLJMAg-/0/1759306405213?e=1761148800&v=beta&t=lnMFNzyUIyuz62v_zwQlJRo6K7nb_l3Po8gJuQD2aNY" 
+                      src="https://avatars.githubusercontent.com/u/196062418?v=4" 
                       alt="Enrico Ciccolini"
                       className="rounded-circle border border-4 border-success"
                       style={{ width: '200px', height: '200px', objectFit: 'cover' }}
