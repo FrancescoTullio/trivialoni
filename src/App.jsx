@@ -4,6 +4,7 @@ import GlobalContext from "./context/GlobalContext";
 import AppLayout from "./layout/AppLayout";
 import HomePage from "./pages/Homepage";
 import Category from "./pages/Category";
+import QuizConfig from "./components/QuizConfig";
 import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 import ResultPage from "./pages/ResultPage";
@@ -62,7 +63,7 @@ const categoryArray = [
     name: "Computers",
     id: 18,
     description:
-      "Domande sul mondo dell’informatica: software, hardware, Internet e storia dei computer.",
+      "Domande sul mondo dell'informatica: software, hardware, Internet e storia dei computer.",
   },
   {
     name: "Matematica",
@@ -104,7 +105,7 @@ const categoryArray = [
     name: "Arte",
     id: 25,
     description:
-      "Scopri quanto conosci il mondo dell’arte: pittura, scultura, correnti artistiche e grandi maestri.",
+      "Scopri quanto conosci il mondo dell'arte: pittura, scultura, correnti artistiche e grandi maestri.",
   },
   {
     name: "Celebrità",
@@ -143,7 +144,8 @@ function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/category" element={<Category />} />
-            <Route path="/quiz/:id" element={<Quiz />} />
+            <Route path="/quiz/:id" element={<QuizConfig />} />
+            <Route path="/quiz/:id/play" element={<Quiz />} />
             <Route path="/result" element={<ResultPage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
